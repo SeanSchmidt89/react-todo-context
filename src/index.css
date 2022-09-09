@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.complete {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.modalOverlay {
+  background-color: rgba(0,0,0,0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modalContainer {
+  max-width: 600px;
+  width: 90%;
+  position: fixed;
+  top: 40%;
+  left: 20%;
+  background-color: white;
+
+}
