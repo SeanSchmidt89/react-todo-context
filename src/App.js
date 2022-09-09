@@ -1,6 +1,8 @@
 import React from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import SearchInput from "./components/SearchInput";
+import SearchList from "./components/SearchList";
 import { TodoProvider } from "./context/todo-context";
 import Modal from "./modal/Modal";
 
@@ -10,8 +12,16 @@ function App() {
       <TodoProvider>
         <Modal />
         <h1>Seans Todo App</h1>
-        <TodoForm />
-        <TodoList />
+        <div className="todoContainer">
+          <div>
+            <TodoForm />
+            <TodoList />
+          </div>
+          <div>
+            <SearchInput />
+            <SearchList />
+          </div>
+        </div>
       </TodoProvider>
     </div>
   );

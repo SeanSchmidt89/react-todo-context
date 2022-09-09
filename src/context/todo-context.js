@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 const TodoContext = createContext();
 
@@ -7,6 +7,7 @@ export const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [updateTodoId, setUpdateTodoId] = useState(null);
+  const [filteredList, setFilteredList] = useState([]);
 
   const inputHandler = (e) => {
     setInputText(e.target.value);
@@ -36,6 +37,11 @@ export const TodoProvider = ({ children }) => {
     setUpdateTodoId(null);
     setOpenModal(false);
   };
+
+  useEffect(() => {
+    const searchInput = () => {};
+  }, []);
+
   return (
     <TodoContext.Provider
       value={{
@@ -49,6 +55,7 @@ export const TodoProvider = ({ children }) => {
         updateTodoId,
         setUpdateTodoId,
         updateHandler,
+        searchInput,
       }}
     >
       {children}
