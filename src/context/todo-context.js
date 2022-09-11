@@ -7,6 +7,7 @@ export const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [updateTodoId, setUpdateTodoId] = useState(null);
+  const [searchText, setSearchText] = useState(null);
   const [filteredList, setFilteredList] = useState([]);
 
   const inputHandler = (e) => {
@@ -38,6 +39,21 @@ export const TodoProvider = ({ children }) => {
     setOpenModal(false);
   };
 
+  useEffect(() => {
+    const newFilteredList = todos.filter((todo) => {
+      return todo.title.toLowerCase().includes(searchText);
+    });
+    setFilteredList(newFilteredList);
+  }, [todos, searchText]);
+
+  const searchHandler = (e) => {
+    if (e.target.value === "") {
+      setSearchText(null);
+    } else {
+      setSearchText(e.target.value.toLowerCase());
+    }
+  };
+
   return (
     <TodoContext.Provider
       value={{
@@ -52,7 +68,7 @@ export const TodoProvider = ({ children }) => {
         setUpdateTodoId,
         updateHandler,
         filteredList,
-        setFilteredList,
+        searchHandler,
       }}
     >
       {children}

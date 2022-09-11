@@ -1,17 +1,11 @@
 import React, { useContext } from "react";
 import TodoContext from "../context/todo-context";
 
-const SearchInput = ({}) => {
-  const { filteredList, setFilteredList } = useContext(TodoContext);
-
-  useEffect(() => {
-    const searchHandler = (e) => {
-      setFilteredList();
-    };
-  }, []);
+const SearchInput = () => {
+  const { searchHandler } = useContext(TodoContext);
   return (
     <div>
-      <h3>Search Input</h3>
+      <h2>-Search-</h2>
       <input onChange={searchHandler} type="search" />
     </div>
   );

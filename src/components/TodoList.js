@@ -6,12 +6,11 @@ const TodoList = () => {
   const { todos } = useContext(TodoContext);
   return (
     <div>
-      <h3>Todo List</h3>
-      <ul>
-        {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} />
-        ))}
-      </ul>
+      <h3>Todos:</h3>
+      <hr/>
+      {todos.map((todo) => (
+        <Todo key={todo.id} todo={todo} />
+      ))}
     </div>
   );
 };

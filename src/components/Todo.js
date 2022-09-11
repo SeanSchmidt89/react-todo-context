@@ -1,15 +1,12 @@
 import React, { useContext } from "react";
 import TodoContext from "../context/todo-context";
 
-const Todo = ({ todo }) => {
-  const { todos, setTodos, setOpenModal, setUpdateTodoId } = useContext(TodoContext);
+const Todo = ({ todo, title }) => {
+  const { todos, setTodos, setOpenModal, setUpdateTodoId } =
+    useContext(TodoContext);
 
-  const todoDeleteHandler = (e) => {
-    const deleteList = todos.filter((item) => {
-      if (item.id !== todo.id) {
-        return item;
-      }
-    });
+  const todoDeleteHandler = () => {
+    const deleteList = todos.filter((item) => item.id !== todo.id);
     setTodos(deleteList);
   };
 
@@ -25,17 +22,19 @@ const Todo = ({ todo }) => {
 
   const modalHandler = () => {
     setOpenModal(true);
-    setUpdateTodoId(todo.id)
+    setUpdateTodoId(todo.id);
   };
-  
+
   return (
     <div>
-      <li className={todo.complete ? "complete" : ""}>
-        Title: {todo.title}
-        <button onClick={completeHandler}>✔</button>
-        <button onClick={todoDeleteHandler}>Delete</button>
-        <button onClick={modalHandler}>Edit</button>
-      </li>
+      <p className={todo.complete ? "complete" : ""}>
+        {todo.title}
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button onClick={completeHandler} className="btn btn-outline-light btn-sm">✔</button>
+          <button onClick={modalHandler} className="btn btn-outline-light btn-sm">Edit</button>
+          <button onClick={todoDeleteHandler} className="btn btn-outline-light btn-sm">Delete</button>
+        </div>
+      </p>
     </div>
   );
 };
