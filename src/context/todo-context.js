@@ -4,6 +4,7 @@ const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
   const [inputText, setInputText] = useState("");
+  const [modalText, setModalText] = useState("");
   const [todos, setTodos] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [updateTodoId, setUpdateTodoId] = useState(null);
@@ -12,6 +13,10 @@ export const TodoProvider = ({ children }) => {
 
   const inputHandler = (e) => {
     setInputText(e.target.value);
+  };
+
+  const modalInputHandler = (e) => {
+    setModalText(e.target.value);
   };
 
   const todoFormHandler = (e) => {
@@ -29,12 +34,12 @@ export const TodoProvider = ({ children }) => {
   const updateHandler = () => {
     const updatedList = todos.map((todo) => {
       if (todo.id === updateTodoId) {
-        return { ...todo, title: inputText };
+        return { ...todo, title: modalText };
       }
       return todo;
     });
     setTodos(updatedList);
-    setInputText("");
+    setModalText("");
     setUpdateTodoId(null);
     setOpenModal(false);
   };
@@ -69,6 +74,8 @@ export const TodoProvider = ({ children }) => {
         updateHandler,
         filteredList,
         searchHandler,
+        modalInputHandler,
+        modalText
       }}
     >
       {children}

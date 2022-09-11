@@ -6,7 +6,7 @@ const SearchInput = () => {
   return (
     <div>
       <h2>-Search-</h2>
-      <input onChange={searchHandler} type="search" />
+      <input onChange={searchHandler} type="search" placeholder="find a todo"/>
     </div>
   );
 };

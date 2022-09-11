@@ -29,11 +29,9 @@ const Todo = ({ todo, title }) => {
     <div>
       <p className={todo.complete ? "complete" : ""}>
         {todo.title}
-        <div class="btn-group" role="group" aria-label="Basic example">
           <button onClick={completeHandler} className="btn btn-outline-light btn-sm">✔</button>
           <button onClick={modalHandler} className="btn btn-outline-light btn-sm">Edit</button>
           <button onClick={todoDeleteHandler} className="btn btn-outline-light btn-sm">Delete</button>
-        </div>
       </p>
     </div>
   );
