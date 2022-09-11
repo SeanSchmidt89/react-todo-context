@@ -38,10 +38,6 @@ export const TodoProvider = ({ children }) => {
     setOpenModal(false);
   };
 
-  useEffect(() => {
-    const searchInput = () => {};
-  }, []);
-
   return (
     <TodoContext.Provider
       value={{
@@ -55,7 +51,8 @@ export const TodoProvider = ({ children }) => {
         updateTodoId,
         setUpdateTodoId,
         updateHandler,
-        searchInput,
+        filteredList,
+        setFilteredList,
       }}
     >
       {children}
