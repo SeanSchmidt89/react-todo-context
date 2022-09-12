@@ -12,14 +12,16 @@ function App() {
       <TodoProvider>
         <Modal />
         <h1>Seans Todo App</h1>
-        <div className="todoContainer">
-          <div>
-            <TodoForm />
-            <TodoList />
-          </div>
-          <div>
-            <SearchInput />
-            <SearchList />
+        <div className="container">
+          <div class="row justify-content-center">
+            <div class="col-md-4">
+              <TodoForm />
+              <TodoList />
+            </div>
+            <div class="col-md-4">
+              <SearchInput />
+              <SearchList />
+            </div>
           </div>
         </div>
       </TodoProvider>
